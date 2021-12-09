@@ -38,7 +38,7 @@ class RestaurantsController extends Controller
         $data = Prefecture::get();
         return response()->json([
             "message" => "OK",
-            "data" => $data
+            "data" => $data,
         ], 200);
     }
     public function getRestaurant(Request $request)
