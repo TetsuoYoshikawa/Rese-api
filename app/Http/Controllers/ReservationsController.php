@@ -33,7 +33,7 @@ class ReservationsController extends Controller
     }
     public function delete(Request $request)
     {
-        $items = Reservation::where('user_id', $request->user_id)->where('restaurant_id', $request->restaurant_id)->delete();;
+        $items = Reservation::where('user_id', $request->user_id)->where('restaurant_id', $request->restaurant_id)->delete();
         if ($items) {
             return response()->json([
                 'message' => 'Reservation deleted successsfully'
