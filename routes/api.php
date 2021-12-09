@@ -22,8 +22,8 @@ use App\Http\Controllers\ReviewsController;
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/restaurants', [RestaurantsController::class, 'get']);
-Route::get('/restaurants/{restaurant_id}', [RestaurantsController::class, 'getRestaurant']);
+Route::get('/restaurants/user/{user_id}', [RestaurantsController::class, 'get']);
+Route::get('/restaurants/{id}', [RestaurantsController::class, 'getRestaurant']);
 Route::get('/prefectures', [RestaurantsController::class, 'getPrefecture']);
 Route::get('/genres', [RestaurantsController::class, 'getGenre']);
 Route::get('/reviews', [ReviewsController::class, 'getReview']);

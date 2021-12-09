@@ -12,7 +12,9 @@ class RestaurantsController extends Controller
 {
     public function get(Request $request)
     {
-        $restaurant = Restaurant::with("prefecture", "genre", "favorites", "reviews")->get();
+        $restaurant = Restaurant::with("prefecture", "genre")->with("favorites", function ($q) use ($request) {
+            $q->where("user_id", $request->user_id);
+        })->get();
         $prefecture = Prefecture::get();
         $genre = Genre::get();
         $item = [
@@ -38,7 +40,7 @@ class RestaurantsController extends Controller
         $data = Prefecture::get();
         return response()->json([
             "message" => "OK",
-            "data" => $data,
+            "data" => $data
         ], 200);
     }
     public function getRestaurant(Request $request)
