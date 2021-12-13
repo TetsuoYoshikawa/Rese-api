@@ -12,7 +12,7 @@ class RestaurantsController extends Controller
 {
     public function get(Request $request)
     {
-        $restaurant = Restaurant::with("prefecture", "genre", "favorites")->get();
+        $restaurant = Restaurant::with("prefecture", "genre")->get();
         $prefecture = Prefecture::get();
         $genre = Genre::get();
         $item = [
