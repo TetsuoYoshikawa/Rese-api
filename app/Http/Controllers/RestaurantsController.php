@@ -12,6 +12,21 @@ class RestaurantsController extends Controller
 {
     public function get(Request $request)
     {
+        $restaurant = Restaurant::with("prefecture", "genre", "favorites")->get();
+        $prefecture = Prefecture::get();
+        $genre = Genre::get();
+        $item = [
+            "restaurant" => $restaurant,
+            "prefecture" => $prefecture,
+            "genre" => $genre,
+        ];
+        return response()->json([
+            'message' => 'OK',
+            'data' => $item
+        ], 200);
+    }
+    public function getUser(Request $request)
+    {
         $restaurant = Restaurant::with("prefecture", "genre")->with("favorites", function ($q) use ($request) {
             $q->where("user_id", $request->user_id);
         })->get();
