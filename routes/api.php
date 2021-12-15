@@ -38,6 +38,7 @@ Route::group([
 
     Route::get('/reservations/{user_id}', [ReservationsController::class, 'get']);
     Route::post('/reservations', [ReservationsController::class, 'post']);
+    Route::put('/reservations', [ReservationsController::class, 'put']);
     Route::delete('/reservations', [ReservationsController::class, 'delete']);
 
     Route::get('/favorites/{user_id}', [FavoritesController::class, 'get']);

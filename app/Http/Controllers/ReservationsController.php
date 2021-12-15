@@ -31,6 +31,22 @@ class ReservationsController extends Controller
             'data' => $param
         ], 200);
     }
+    public function put(Request $request)
+    {
+        $param = [
+            'user_id' => $request->user_id,
+            'restaurant_id' => $request->restaurant_id,
+            'date' => $request->date,
+            'time' => $request->time,
+            'number_reservation' => $request->number_reservation,
+        ];
+        $items = Reservation::where('id', $request->id)->update($param);
+        DB::table('reservations')->insert($param);
+        return response()->json([
+            'message' => "OK",
+            'data' => $param
+        ], 200);
+    }
     public function delete(Request $request)
     {
         $items = Reservation::where('user_id', $request->user_id)->where('restaurant_id', $request->restaurant_id)->delete();
