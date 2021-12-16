@@ -10,11 +10,17 @@ class ReviewsController extends Controller
 {
     public function get(Request $request)
     {
-        $items = Review::all();
-        return response()->json([
-            'message' => 'OK',
-            'data' => $items
-        ], 200);
+        $items = Review::where('id', $request->id)->get();
+        if ($items) {
+            return response()->json([
+                "message" => 'OK',
+                "data" => $items
+            ], 200);
+        } else {
+            return response()->json([
+                "message" => "Not found"
+            ], 404);
+        }
     }
     public function post(Request $request)
     {
