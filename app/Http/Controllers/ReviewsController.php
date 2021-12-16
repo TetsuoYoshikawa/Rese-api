@@ -10,7 +10,7 @@ class ReviewsController extends Controller
 {
     public function get(Request $request)
     {
-        $items = Review::where('id', $request->id)->get();
+        $items = Review::where('restaurant_id', $request->restaurant_id)->get();
         if ($items) {
             return response()->json([
                 "message" => 'OK',
