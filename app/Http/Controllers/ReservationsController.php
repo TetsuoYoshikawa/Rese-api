@@ -34,14 +34,11 @@ class ReservationsController extends Controller
     public function put(Request $request)
     {
         $param = [
-            'user_id' => $request->user_id,
-            'restaurant_id' => $request->restaurant_id,
             'date' => $request->date,
             'time' => $request->time,
             'number_reservation' => $request->number_reservation,
         ];
-        $items = Reservation::where('id', $request->id)->update($param);
-        DB::table('reservations')->insert($param);
+        $items = Reservation::where('id', $request->id)->where('user_id', $request->user_id)->where('restaurant_id', $request->restaurant_id)->update($param);
         return response()->json([
             'message' => "OK",
             'data' => $param

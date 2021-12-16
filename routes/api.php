@@ -8,6 +8,7 @@ use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\RestaurantsController;
 use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,6 +24,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/restaurants', [RestaurantsController::class, 'get']);
+Route::get('/users', [UsersController::class, 'get']);
 Route::get('/restaurants/user/{user_id}', [RestaurantsController::class, 'getUser']);
 Route::get('/restaurants/{id}', [RestaurantsController::class, 'getRestaurant']);
 Route::get('/prefectures', [RestaurantsController::class, 'getPrefecture']);
