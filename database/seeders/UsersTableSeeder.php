@@ -23,5 +23,37 @@ class UsersTableSeeder extends Seeder
             'administrator' => true,
         ];
         User::insert($param);
+
+        $param = [
+            'id' => 2,
+            'name' => 'test',
+            'email' => 'test@test.com',
+            'password' => Hash::make('testtest'),
+        ];
+        User::insert($param);
+
+        $param = [
+            'id' => 3,
+            'name' => 'Yuki',
+            'email' => 'yuki@yuki.com',
+            'password' => Hash::make('yukiyuki'),
+        ];
+        User::insert($param);
+
+        $param = [
+            'id' => 4,
+            'name' => 'Tetsuo',
+            'email' => 'tetsuo@tetsuo.com',
+            'password' => Hash::make('tetsuotetsuo'),
+        ];
+        User::insert($param);
+
+        $param = [
+            'id' => 5,
+            'name' => 'Nao',
+            'email' => 'nao@nao.com',
+            'password' => Hash::make('testtest'),
+        ];
+        User::insert($param);
     }
 }

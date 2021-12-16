@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class ReviewsController extends Controller
 {
-    public function getReview(Request $request)
+    public function get(Request $request)
     {
         $items = Review::all();
         return response()->json([
