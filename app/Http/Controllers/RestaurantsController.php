@@ -60,7 +60,7 @@ class RestaurantsController extends Controller
     }
     public function getRestaurant(Request $request)
     {
-        $items = Restaurant::where('id', $request->id)->with('prefecture', 'genre')->get();
+        $items = Restaurant::where('id', $request->id)->with('prefecture', 'genre', 'reviews')->get();
         if ($items) {
             return response()->json([
                 "message" => 'OK',
