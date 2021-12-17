@@ -48,6 +48,7 @@ Route::group([
     Route::delete('/favorites', [FavoritesController::class, 'delete']);
 
     Route::get('/reviews/{restaurant_id}', [ReviewsController::class, 'get']);
+    Route::get('/reviews/user/{id}', [ReviewsController::class, 'getUser']);
     Route::post('/reviews', [ReviewsController::class, 'post']);
     Route::put('/reviews', [ReviewsController::class, 'put']);
     Route::delete('/reviews', [ReviewsController::class, 'delete']);
