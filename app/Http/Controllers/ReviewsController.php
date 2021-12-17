@@ -41,13 +41,13 @@ class ReviewsController extends Controller
         $param = [
             "user_id" => $request->user_id,
             "restaurant_id" => $request->restaurant_id,
-            'review_content' => $request->reviwe_content,
+            'review_content' => $request->review_content,
             'num_of_stars' => $request->num_of_stars
         ];
-        $datas = Review::where('id', $request->id)->where('user_id', $request->user_id)->update($param);
+        $datas = Review::where('id', $request->id)->update($param);
         return response()->json([
             'message' => 'Rewiews updataed successfully',
-            'data' => $datas,
+            'data' => $param,
         ], 200);
     }
 
