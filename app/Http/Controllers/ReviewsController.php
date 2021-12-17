@@ -24,7 +24,7 @@ class ReviewsController extends Controller
     }
     public function getUser(Request $request)
     {
-        $items = Review::where('id', $request->id)->with('user')->get();
+        $items = Review::where('id', $request->id)->with('restaurant', 'user')->get();
         if ($items) {
             return response()->json([
                 "message" => 'OK',
