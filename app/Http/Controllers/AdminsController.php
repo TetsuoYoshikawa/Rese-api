@@ -53,7 +53,7 @@ class AdminsController extends Controller
         ];
         DB::table('restaurants')->insert($param);
         return response()->json([
-            'message' => "OK",
+            'message' => "Restaurant created successfully",
             'data' => $param
         ], 200);
     }

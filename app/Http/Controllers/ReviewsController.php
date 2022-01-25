@@ -22,20 +22,6 @@ class ReviewsController extends Controller
             ], 404);
         }
     }
-    public function getUser(Request $request)
-    {
-        $items = Review::where('id', $request->id)->with('restaurant', 'user')->get();
-        if ($items) {
-            return response()->json([
-                "message" => 'OK',
-                "data" => $items
-            ], 200);
-        } else {
-            return response()->json([
-                "message" => "Not found"
-            ], 404);
-        }
-    }
     public function post(Request $request)
     {
         $param = [

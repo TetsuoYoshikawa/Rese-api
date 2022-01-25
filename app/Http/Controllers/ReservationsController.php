@@ -27,7 +27,7 @@ class ReservationsController extends Controller
         ];
         DB::table('reservations')->insert($param);
         return response()->json([
-            'message' => "OK",
+            'message' => "Reservation successsfully",
             'data' => $param
         ], 200);
     }
@@ -40,7 +40,7 @@ class ReservationsController extends Controller
         ];
         $items = Reservation::where('id', $request->id)->where('user_id', $request->user_id)->where('restaurant_id', $request->restaurant_id)->update($param);
         return response()->json([
-            'message' => "OK",
+            'message' => "Reservation updated successsfully",
             'data' => $param
         ], 200);
     }

@@ -29,14 +29,11 @@ Route::get('/restaurants/user/{user_id}', [RestaurantsController::class, 'getUse
 Route::get('/restaurants/{id}', [RestaurantsController::class, 'getRestaurant']);
 Route::get('/prefectures', [RestaurantsController::class, 'getPrefecture']);
 Route::get('/genres', [RestaurantsController::class, 'getGenre']);
-Route::get('/reviews', [ReviewsController::class, 'getReview']);
 
 Route::group([
     'middleware' => 'api', 'prefix' => 'auth'
 ], function ($router) {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/user', [AuthController::class, 'user']);
 
     Route::get('/reservations/{user_id}', [ReservationsController::class, 'get']);
     Route::post('/reservations', [ReservationsController::class, 'post']);
@@ -48,7 +45,6 @@ Route::group([
     Route::delete('/favorites', [FavoritesController::class, 'delete']);
 
     Route::get('/reviews/{restaurant_id}', [ReviewsController::class, 'get']);
-    Route::get('/reviews/user/{id}', [ReviewsController::class, 'getUser']);
     Route::post('/reviews', [ReviewsController::class, 'post']);
     Route::put('/reviews', [ReviewsController::class, 'put']);
     Route::delete('/reviews', [ReviewsController::class, 'delete']);
